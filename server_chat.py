@@ -19,7 +19,7 @@ def gerer_client(connexion, adresse):
 
     try:
         while True:
-            donnees = connexion.rcv(1024)
+            donnees = connexion.recv(1024)
             if not donnees:
                 break
             diffuser(donnees, connexion)
