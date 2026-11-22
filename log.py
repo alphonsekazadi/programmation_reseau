@@ -2,7 +2,7 @@ from datetime import datetime
 
 def journal(message):
     maintenant = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
+    
     ligne = f"[{maintenant}] {message}"
 
     print(ligne)
