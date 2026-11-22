@@ -1,7 +1,7 @@
 import socket
 import threading
 
-HOTE = "127.0.0.1"
+HOTE = "192.168.227.170"
 PORT = 5000
 clients = []
 verrou = threading.Lock()
