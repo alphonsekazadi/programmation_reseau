@@ -1,17 +1,19 @@
 import socket
 
-HOTE = "127.0.0.1"
+HOTE = "10.71.218.170"
 PORT = 5000
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as serveur:
-    serveur.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    serveur.bind((HOTE, PORT)) # on réserve l'adresse et le port
-    serveur.listen() # on se met à l'écoute
-    print("Serveur en attente sur le port", PORT)
+    serveur.bind((HOTE, PORT))
+    serveur.listen()
+    print(f"Le serveur attend une connexion au port {PORT}")
 
-    connexion, adresse = serveur.accept() # le programme attend ici
-with connexion:
-    print("Client connecté depuis", adresse)
-    donnees = connexion.recv(1024)
-    print("Message reçu :", donnees.decode("utf-8"))
-    connexion.sendall("Bien reçu !".encode("utf-8"))
+    connexion, adresse = serveur.accept()
+
+    with connexion:
+        print("Le client est connecté depuis", adresse)
+        donnees = connexion.recv(1024)
+        print("Données reçues :", donnees.decode("utf-8"))
+        connexion.sendall(input("Message à envoyer au client : ").encode("utf-8"))
+
+
