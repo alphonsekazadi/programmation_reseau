@@ -1,6 +1,6 @@
 import socket
 
-HOTE = "10.71.218.170"
+HOTE = "127.0.0.1"
 PORT = 5000
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as serveur:
